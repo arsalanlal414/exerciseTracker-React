@@ -7,6 +7,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
   
     async function handleSubmit(event){
+<<<<<<< HEAD
       // event.preventDefault()
       // const response = await fetch('http://localhost:5001/api/users/login', {
       //   method: 'POST',
@@ -22,6 +23,23 @@ const Login = () => {
       // localStorage.setItem("accessToken",data.accessToken)
       // console.log("getting token from local storage: ",localStorage.getItem("accessToken"))
       // console.log(email, password)
+=======
+      event.preventDefault()
+      const response = await fetch('http://localhost:5001/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          email,
+          password
+        })
+      })
+      const data = await response.json()
+      localStorage.setItem("accessToken",data.accessToken)
+      console.log("getting token from local storage: ",localStorage.getItem("accessToken"))
+      console.log(email, password)
+>>>>>>> origin/main
     }
   
     return(

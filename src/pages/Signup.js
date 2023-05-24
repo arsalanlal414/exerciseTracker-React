@@ -7,6 +7,7 @@ const Singup = () =>{
     const [password, setPassword] = useState("")
   
     async function handleSubmit(event){
+<<<<<<< HEAD
       // event.preventDefault()
       // const response = await fetch('http://localhost:5001/api/users/register', {
       //   method: 'POST',
@@ -21,6 +22,22 @@ const Singup = () =>{
       // })
       // console.log(response.json())
       // console.log(name, email, password)
+=======
+      event.preventDefault()
+      const response = await fetch('http://localhost:5001/api/users/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          username: name,
+          email,
+          password
+        })
+      })
+      console.log(response.json())
+      console.log(name, email, password)
+>>>>>>> origin/main
     }
   
     return(
