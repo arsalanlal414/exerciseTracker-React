@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import { Outlet } from 'react-router-dom'
 
 import NavBar from '../Components/NavBar'
