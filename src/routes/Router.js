@@ -8,8 +8,8 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Home from '../pages/Home';
 import PrivateRoutes from './PrivateRoutes';
-import Users from '../pages/Users';
-import Products from '../pages/Products';
+import Exercises from '../pages/Exercercises';
+import NewExercise from '../pages/NewExercise';
 
 
 export default function Router(){
@@ -18,15 +18,13 @@ export default function Router(){
         {/* <h1>hello world</h1> */}
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Home />} >
+                <Route path='/'  element={<Home />} />
                   <Route path="/signup" element={<Singup />} />
                   <Route path="/login" element={<Login />} />
                   <Route element={<PrivateRoutes/>}>
-                    <Route path='/users' element={<Users/>} />
-                    <Route path='/products' element={<Products/>} />
+                    <Route path='/exercises' element={<Exercises/>} />
+                    <Route path='/newexercise' element={<NewExercise/>} />
                   </Route>
-
-                </Route>
 
                 <Route path="*" element={<NotFound />} />
             </Routes>

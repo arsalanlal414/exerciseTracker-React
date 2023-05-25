@@ -1,0 +1,48 @@
+.newExercise{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // color: green;
+}
+
+.newExercise label{
+    font-size: 24px;
+}
+
+.newExercise input,select{
+    width: 500px;
+    height: 40px;
+    // padding: 2px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid rgb(185, 185, 185);
+    background: none;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .newExercise input,select{
+        width: 300px;
+    }
+    .newExercise label{
+        font-size: 18px;
+    }
+}
+.newExercise form {
+    display: flex;
+    flex-direction: column;
+    
+}
+.newExercise input[type="submit"]{
+    width: 200px;
+    align-self: center;
+    font-size: 16px;
+}
+.newExercise input[type="submit"]:hover{
+    background-color: rgb(197, 255, 236);
+    cursor: pointer;
+}
+// .newExercise input[type="submit"]{
+//     width: 250px;
+// }
