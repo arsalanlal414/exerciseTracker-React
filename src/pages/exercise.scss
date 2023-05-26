@@ -22,11 +22,16 @@
 
 @media only screen and (max-width: 600px) {
     
-    .newExercise input,select{
-        width: 300px;
-    }
-    .newExercise label{
-        font-size: 18px;
+    .newExercise {
+        input,select{
+            width: 300px;
+        }
+        label{
+            font-size: 18px;
+        }
+        // inout[type="submit"]{
+        //     width: 50px;
+        // }
     }
 }
 .newExercise form {

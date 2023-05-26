@@ -1,0 +1,50 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    p{
+        font-size: 18px;
+        margin-top: 0px;
+    }
+    button{
+        width: 70px;
+        height: 40px;
+        margin: 0 10px;
+        // color: white;
+        background-color: #0c9271;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        a{
+            text-decoration: none;
+            color: white;
+
+        }
+        &:hover{
+            cursor: pointer;
+            background-color: rgb(6, 117, 89);
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .home{
+        h1{
+            font-size: 20px;
+        }
+        button{
+            width: 60px;
+            height: 30px;
+            font-size: 14px;
+        }
+        p{
+            font-size: 14px;
+        }
+        .Logo-icon{
+            transform: scale(0.8);
+        }
+    }
+}
