@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import './exercise.scss'
+import { useNavigate } from 'react-router-dom';
+// import './exercise.scss'
 
 const NewExercise = () => {
+  const navigate = useNavigate()
   const [exerciseData, setExerciseData] = useState({
     name: "",
     desc: "",
@@ -32,6 +34,7 @@ const NewExercise = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault()
     createExercise(apiUrl, accessToken)
+    navigate('/')
   }
 
 
@@ -50,12 +53,12 @@ const NewExercise = () => {
         <div>
           <label htmlFor="activity">Activity Type</label><br/>
           <select name="type" onChange={(e)=> setExerciseData({...exerciseData, type: e.target.value})} required>
-            <option value="">Activity Type</option>
-            <option value="runing">Runing</option>
-            <option value="cycling">cycling</option>
-            <option value="hiking">hiking</option>
-            <option value="walking">walking</option>
-            <option value="swiming">swiming</option>
+            <option className='acticity-type' value="">Activity Type</option>
+            <option className='acticity-type' value="runing">Runing</option>
+            <option className='acticity-type' value="cycling">cycling</option>
+            <option className='acticity-type' value="hiking">hiking</option>
+            <option className='acticity-type' value="walking">walking</option>
+            <option className='acticity-type' value="swiming">swiming</option>
           </select>
         </div>
         <div>

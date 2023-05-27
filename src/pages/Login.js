@@ -13,6 +13,7 @@ const Login = () => {
   
     async function handleSubmit(event){
       event.preventDefault()
+      console.log("waiting....")
       try{
         const response = await fetch('http://localhost:5001/api/users/login', {
           method: 'POST',
@@ -25,12 +26,15 @@ const Login = () => {
           })
         })
         const data = await response.json()
+        console.log(data)
         if(data.title){
           setError(data.message)
           setVisible(true)
+        }else{
+          localStorage.setItem("accessToken", data.accessToken)
+          setLoggedIn(true)
         }
-        localStorage.setItem("accessToken", data.accessToken)
-        setLoggedIn(true)
+        
       }catch(err){
         console.log(err)
       }

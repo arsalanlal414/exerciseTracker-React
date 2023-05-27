@@ -10,13 +10,15 @@ import Home from '../pages/Home';
 import PrivateRoutes from './PrivateRoutes';
 import Exercises from '../pages/Exercercises';
 import NewExercise from '../pages/NewExercise';
-
+import NavBar from '../Components/NavBar';
 
 export default function Router(){
   return (
     <div>
         {/* <h1>hello world</h1> */}
+
         <BrowserRouter>
+          <NavBar />
             <Routes>
                 <Route path='/'  element={<Home />} />
                   <Route path="/signup" element={<Singup />} />

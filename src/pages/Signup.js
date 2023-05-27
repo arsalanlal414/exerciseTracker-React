@@ -29,8 +29,8 @@ const Singup = () =>{
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name">Email</label><br />
-            <input value={name} type="email" placeholder="Name..." onChange={(e)=> setName(e.target.value)} required/><br />
+            <label htmlFor="name">Name</label><br />
+            <input value={name} type="name" placeholder="Name..." onChange={(e)=> setName(e.target.value)} required/><br />
           </div>
           <div>
             <label htmlFor="email">Email</label><br />
