@@ -86,13 +86,14 @@ function Exercises() {
               const {_id, name, desc, type, duration, date} = exercise
               return(
                 <article key={_id} className='card' >
-                  <div>
+                  <div className='details'>
                     <h1>{name}</h1>
+                    <h4>{desc}</h4>
                     <p>duration: {duration}</p>
                     <p>type: {type}</p>
                     <p>date: {date}</p>
                   </div>
-                  <div>
+                  <div className='buttons'>
                     <button className='btn-update' onClick={()=>  console.log(_id)}>Update</button>
                     <button className='btn-delete' onClick={()=>handleDelete(_id)}>Delete</button>
                   </div>
