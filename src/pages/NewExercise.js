@@ -37,7 +37,6 @@ const NewExercise = () => {
     navigate('/')
   }
 
-
   return (
     <div className='newExercise'>
       <h1>Add Exercise</h1>
