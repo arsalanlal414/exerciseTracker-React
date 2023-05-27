@@ -12,6 +12,7 @@ const NewExercise = () => {
     date: ""
   })
 
+  
   // Call the function and pass the URL and access token
   const apiUrl = 'http://localhost:5001/api/exercise';
   const accessToken = localStorage.getItem("accessToken")
