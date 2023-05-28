@@ -5,12 +5,13 @@ import './form.scss'
 
 const Login = () => {
 
+   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [visible, setVisible] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
-  
+
     async function handleSubmit(event){
       event.preventDefault()
       console.log("waiting....")
@@ -45,16 +46,18 @@ const Login = () => {
       const timer = setTimeout(() => {
         setVisible(false);
       }, 3000);
-  
+
       return () => clearTimeout(timer);
     }, [visible]);
 
     if (loggedIn) {
+      
       return <Navigate to="/exercises" />;
     }
   
     return(
       <div className='login-signup'>
+        
         <h1>Login</h1>
         {visible ? <Alert severity="error">{error}</Alert> : null}
         <form onSubmit={handleSubmit}>

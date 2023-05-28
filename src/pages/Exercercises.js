@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate  } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './exercise.scss'
 
 function Exercises() {
   const [exercises, setExercises] = useState([])
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
+
+  const notify = () => toast.success('Item Deleted Successfully', {
+    position: "bottom-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
 
   async function getExercises(url, token) {
     try {
@@ -17,7 +30,6 @@ function Exercises() {
       const data = await response.json();
       
       // Process the response data
-      console.log(data);
       setExercises(data)
       setLoading(false)
       
@@ -26,9 +38,7 @@ function Exercises() {
       console.error(error);
     }
   }
-  const accessToken = localStorage.getItem("accessToken")
-  const apiUrl = 'http://localhost:5001/api/exercise';
-  
+
   async function handleDelete(id){
     try {
       const response = await fetch(`${apiUrl}/${id}`, {
@@ -37,34 +47,28 @@ function Exercises() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
-        // body:JSON.stringify({...exerciseData})
       });
       const data = await response.json();
-      
-      // Process the response data
-      console.log(data);
-      setExercises(data)
       
     } catch (error) {
       // Handle any errors that occur during the request
       console.error(error);
     }
+    notify()
     setExercises(exercises.filter(e => e._id !== id))
-    console.log("item deleted with id: ", id);
   }
+
+  const accessToken = localStorage.getItem("accessToken")
+  const apiUrl = 'http://localhost:5001/api/exercise';
+  
   
   // Call the function and pass the URL and access token
   // getDataWithToken(apiUrl, accessToken);
-
+  
   useEffect(()=>{
     getExercises(apiUrl, accessToken)
   }, [])
-
-  function handleLogout(){
-    localStorage.setItem("accessToken","")
-    navigate('/login');
-  }
-
+  
   function handleAddExercise(){
     navigate('/newexercise')
   }
@@ -79,7 +83,7 @@ function Exercises() {
         </div>
         {
         loading ?
-          <h1 className='heading'>Loading ...</h1> :
+          <h1 className='heading' >Loading ...</h1> :
           exercises.length ?   
           <div className='cards'>
             {exercises.map(exercise=>{
@@ -102,6 +106,7 @@ function Exercises() {
             })}
           </div> : <h1 className='heading'>No Data Found</h1>
         }
+        <ToastContainer />
       </div>
     </div>
   )
