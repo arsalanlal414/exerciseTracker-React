@@ -21,7 +21,7 @@ function NavBar() {
           <div className='logo'>
             <h1 onClick={handleNavigation}>Exercise Tracker</h1>
           </div>
-          <NavItems />
+          <NavItems setIsActive={setIsActive}/>
           <div className='nav-icons'>
             {
               isActive ? 

@@ -11,6 +11,8 @@ import PrivateRoutes from './PrivateRoutes';
 import Exercises from '../pages/Exercercises';
 import NewExercise from '../pages/NewExercise';
 import NavBar from '../Components/NavBar';
+import Exercise from '../pages/Exercise';
+import EditExercise from '../pages/EditExercise';
 
 export default function Router(){
   return (
@@ -25,6 +27,9 @@ export default function Router(){
                   <Route path="/login" element={<Login />} />
                   <Route element={<PrivateRoutes/>}>
                     <Route path='/exercises' element={<Exercises/>} />
+                    <Route path='/exercises/:id' element={<Exercise/>} />
+                    <Route path='/exercises/edit/:id' element={<EditExercise/>} />
+                    <Route path='/exercises/:id' element={<Exercise/>} />
                     <Route path='/newexercise' element={<NewExercise/>} />
                   </Route>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './exercise.scss'
@@ -41,14 +41,14 @@ function Exercises() {
 
   async function handleDelete(id){
     try {
-      const response = await fetch(`${apiUrl}/${id}`, {
+      await fetch(`${apiUrl}/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
       });
-      const data = await response.json();
+      // const data = await response.json();
       
     } catch (error) {
       // Handle any errors that occur during the request
@@ -67,10 +67,16 @@ function Exercises() {
   
   useEffect(()=>{
     getExercises(apiUrl, accessToken)
-  }, [])
+  },[accessToken])
   
   function handleAddExercise(){
     navigate('/newexercise')
+  }
+
+  if(loading){
+    return <div className='centered'>
+        <h1>Loading ....</h1>
+      </div>
   }
 
   return (
@@ -82,29 +88,31 @@ function Exercises() {
           <button onClick={handleAddExercise}>Add Exercise</button>
         </div>
         {
-        loading ?
-          <h1 className='heading' >Loading ...</h1> :
           exercises.length ?   
           <div className='cards'>
             {exercises.map(exercise=>{
               const {_id, name, desc, type, duration, date} = exercise
               return(
                 <article key={_id} className='card' >
-                  <div className='details'>
-                    <h1>{name}</h1>
-                    <h4>{desc}</h4>
-                    <p>duration: {duration}</p>
-                    <p>type: {type}</p>
-                    <p>date: {date}</p>
-                  </div>
+                  <Link to={`/exercises/${_id}`} >
+                    <div className='details'>
+                      <h1>{name}</h1>
+                      <h4>{desc.substring(0,20)}</h4>
+                      <p>duration: {duration}</p>
+                      <p>type: {type}</p>
+                      <p>date: {date}</p>
+                    </div>
+                  </Link>
                   <div className='buttons'>
-                    <button className='btn-update' onClick={()=>  console.log(_id)}>Update</button>
-                    <button className='btn-delete' onClick={()=>handleDelete(_id)}>Delete</button>
+                    <Link to={`/exercises/edit/${_id}`} >
+                      <button className='btn-update'>Update</button>
+                    </Link>
+                    <button className='btn-delete' onClick={()=> handleDelete(_id)}>Delete</button>
                   </div>
                 </article>
               )
             })}
-          </div> : <h1 className='heading'>No Data Found</h1>
+          </div> : <h1>No Data Found</h1>
         }
         <ToastContainer />
       </div>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import './exercise.scss'
 
 const NewExercise = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [exerciseData, setExerciseData] = useState({
     name: "",
     desc: "",
@@ -75,11 +75,11 @@ const NewExercise = () => {
           <label htmlFor="activity">Activity Type</label><br/>
           <select value={exerciseData.type} name="type" onChange={(e)=> setExerciseData({...exerciseData, type: e.target.value})} required>
             <option className='acticity-type' value="">Activity Type</option>
-            <option className='acticity-type' value="runing">Runing</option>
+            <option className='acticity-type' value="running">Running</option>
             <option className='acticity-type' value="cycling">cycling</option>
             <option className='acticity-type' value="hiking">hiking</option>
             <option className='acticity-type' value="walking">walking</option>
-            <option className='acticity-type' value="swiming">swiming</option>
+            <option className='acticity-type' value="swimming">swimming</option>
           </select>
         </div>
         <div>

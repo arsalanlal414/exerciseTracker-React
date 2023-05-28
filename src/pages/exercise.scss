@@ -87,3 +87,88 @@
         }
     }
 }
+
+.exercise-details{
+        width: 90%;
+        // background-color: #0c9271;
+        margin: auto;
+        height: 89vh;
+        .top-head{
+            margin: 30px 20px 20px 20px;
+            font-size: 34px;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            .details{
+                display: flex;
+                justify-content: space-evenly;
+                width: 80%;
+                div{
+                    margin: 10px;
+                }
+                p{
+                    font-size: 20px;
+                    word-spacing: 1.2rem;
+                    span{
+                        word-spacing: normal;
+                    }
+                }
+            }
+            button{
+                width: 200px;
+                height: 45px;
+                align-self: center;
+                font-size: 18px;
+                // font-weight: 600;
+                border: none;
+                margin-top: 30px;
+                border-radius: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #0c9271;
+                color: white;
+                &:hover{
+                    background-color: rgb(8, 139, 107);
+                    cursor: pointer;
+                }
+            }
+            .activity-icons{
+                font-size: 120px;
+                // color: #0c9271;
+            }
+        }
+}
+
+@media only screen and (max-width:800px){
+    .exercise-details{
+        .container{
+            .details{
+                p{
+                    font-size: 16px;
+                    word-spacing: 0.7rem;
+                }
+            }
+            button{
+                width: 150px;
+                height: 35px;
+                align-self: center;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+            .activity-icons{
+                font-size: 100px;
+            }
+        }
+
+    }
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+}
