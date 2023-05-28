@@ -20,8 +20,8 @@ const Singup = () =>{
           password
         })
       })
-      console.log(await response.json())
-      console.log(name, email, password)
+      // console.log(await response.json())
+      // console.log(name, email, password)
     }
   
     return(
@@ -38,7 +38,7 @@ const Singup = () =>{
           </div>
           <div>
             <label htmlFor="password">Password</label><br />
-            <input value={password} type="password" placeholder="Password..." onChange={(e)=> setPassword(e.target.value)} required/><br />
+            <input min="8" max value={password} type="password" placeholder="Password..." onChange={(e)=> setPassword(e.target.value)} required/><br />
           </div>
           <input type="submit" value="Sign Up"/>
         </form>

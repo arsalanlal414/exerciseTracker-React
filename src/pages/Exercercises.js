@@ -49,13 +49,12 @@ function Exercises() {
         },
       });
       // const data = await response.json();
-      
+      notify()
+      setExercises(exercises.filter(e => e._id !== id))
     } catch (error) {
       // Handle any errors that occur during the request
       console.error(error);
     }
-    notify()
-    setExercises(exercises.filter(e => e._id !== id))
   }
 
   const accessToken = localStorage.getItem("accessToken")
@@ -84,7 +83,6 @@ function Exercises() {
       <div className='container'>
         <div className='heading'>
           <h1>Exercises</h1>
-          {/* <button onClick={(e)=>{handleLogout(e)}}>Logout</button> */}
           <button onClick={handleAddExercise}>Add Exercise</button>
         </div>
         {

@@ -5,7 +5,6 @@ import './form.scss'
 
 const Login = () => {
 
-   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -27,7 +26,7 @@ const Login = () => {
           })
         })
         const data = await response.json()
-        console.log(data)
+        
         if(data.title){
           setError(data.message)
           setVisible(true)
@@ -51,13 +50,11 @@ const Login = () => {
     }, [visible]);
 
     if (loggedIn) {
-      
       return <Navigate to="/exercises" />;
     }
   
     return(
       <div className='login-signup'>
-        
         <h1>Login</h1>
         {visible ? <Alert severity="error">{error}</Alert> : null}
         <form onSubmit={handleSubmit}>
