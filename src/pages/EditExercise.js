@@ -36,7 +36,7 @@ function EditExercise() {
 
   const formik = useFormik({
     initialValues: {
-      name: `${exerciseData ? exerciseData.name : "hello"}`,
+      name: "",
       desc: "",
       type: "",
       duration: "",
