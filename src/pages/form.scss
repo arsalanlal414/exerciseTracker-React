@@ -1,9 +1,10 @@
+
 .login-signup, .newExercise {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 90vh;
 
     label{
         font-size: 20px;
@@ -65,4 +66,11 @@
             width: 320px;
         }
     }
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }

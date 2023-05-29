@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 //pages 
-import Singup from '../pages/Signup';
+import Signup from '../pages/Signup';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Home from '../pages/Home';
@@ -15,26 +15,23 @@ import EditExercise from '../pages/EditExercise';
 
 export default function Router(){
   return (
-    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/'  element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route element={<PrivateRoutes/>}>
+              <Route path='/exercises' element={<Exercises/>} />
+              <Route path='/exercises/:id' element={<Exercise/>} />
+              <Route path='/exercises/edit/:id' element={<EditExercise/>} />
+              <Route path='/exercises/:id' element={<Exercise/>} />
+              <Route path='/newexercise' element={<NewExercise/>} />
+            </Route>
 
-        <BrowserRouter>
-          <NavBar />
-            <Routes>
-                <Route path='/'  element={<Home />} />
-                  <Route path="/signup" element={<Singup />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route element={<PrivateRoutes/>}>
-                    <Route path='/exercises' element={<Exercises/>} />
-                    <Route path='/exercises/:id' element={<Exercise/>} />
-                    <Route path='/exercises/edit/:id' element={<EditExercise/>} />
-                    <Route path='/exercises/:id' element={<Exercise/>} />
-                    <Route path='/newexercise' element={<NewExercise/>} />
-                  </Route>
-
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-        </BrowserRouter>
-    </div>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
   )
 }
 

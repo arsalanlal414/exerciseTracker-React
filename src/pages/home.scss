@@ -1,3 +1,4 @@
+
 .home{
     display: flex;
     flex-direction: column;
@@ -5,34 +6,45 @@
     align-items: center;
     height: 90vh;
     text-align: center;
+    margin: 10px;
+    h1{
+        // font-size: 28px;
+    }
     p{
         font-size: 18px;
         margin-top: 0px;
     }
-    button{
-        width: 70px;
-        height: 40px;
-        margin: 0 10px;
-        background-color: #0c9271;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        a{
-            text-decoration: none;
+    a{
+        // text-decoration: none;
+        // color: white;
+        // background-color:#0c9271 ;
+        button{
+            width: 80px;
+            height: 40px;
+            margin: 0 10px;
+            // padding: 10px;
+            background-color: #0c9271;
             color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            p{
+                margin: auto;
+            }
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(6, 117, 89);
+            }
+           
+        }
 
-        }
-        &:hover{
-            cursor: pointer;
-            background-color: rgb(6, 117, 89);
-        }
     }
 }
 
 @media only screen and (max-width: 600px) {
     .home{
         h1{
-            font-size: 20px;
+            font-size: 18px;
         }
         button{
             width: 60px;

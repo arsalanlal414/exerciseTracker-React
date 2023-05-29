@@ -17,7 +17,7 @@ function NavItems({setIsActive}) {
             !login ?
             <ul>
                 <li onClick={()=> setIsActive(true)}><p><Link to="/">Home</Link></p></li>
-                <li onClick={()=> setIsActive(true)}><p><Link to="/login">Signin</Link></p></li>
+                <li onClick={()=> setIsActive(true)}><p><Link to="/login">Sign in</Link></p></li>
                 <li onClick={()=> setIsActive(true)}><p><Link to="/signup">Sign Up</Link></p></li> 
             </ul>:
             <ul>

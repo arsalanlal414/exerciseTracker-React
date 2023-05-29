@@ -76,6 +76,19 @@
         nav{
             display: none;
         }
+        .container{
+            .logo{
+                h1{
+                    color: rgb(12, 130, 75);
+                    font-size: 28px;
+                    margin: 15px;
+                    // padding: 10px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
     .dropdown{
         position: absolute;

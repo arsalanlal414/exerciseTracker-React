@@ -49,7 +49,7 @@ const Login = () => {
       return () => clearTimeout(timer);
     }, [visible]);
 
-    if (loggedIn) {
+    if (localStorage.getItem("accessToken")) {
       return <Navigate to="/exercises" />;
     }
   

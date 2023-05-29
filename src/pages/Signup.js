@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const Singup = () =>{
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
   
     async function handleSubmit(event){
       event.preventDefault()
@@ -14,15 +15,22 @@ const Singup = () =>{
         headers: {
           'Content-Type': 'application/json'
         },
-        body:JSON.stringify({
+        body: JSON.stringify({
           username: name,
           email,
           password
         })
       })
+      navigate('/login')
+
       // console.log(await response.json())
       // console.log(name, email, password)
     }
+
+    if (localStorage.getItem("accessToken")) {
+      return <Navigate to="/exercises" />;
+    }
+  
   
     return(
       <div className='login-signup'>

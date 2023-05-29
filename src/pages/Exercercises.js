@@ -87,7 +87,7 @@ function Exercises() {
         </div>
         {
           exercises.length ?   
-          <div className='cards'>
+           <div className='cards'>
             {exercises.map(exercise=>{
               const {_id, name, desc, type, duration, date} = exercise
               return(
@@ -110,7 +110,10 @@ function Exercises() {
                 </article>
               )
             })}
-          </div> : <h1>No Data Found</h1>
+          </div>: 
+          <div className='centered'>
+            <h1>No Data Found</h1>
+          </div>
         }
         <ToastContainer />
       </div>

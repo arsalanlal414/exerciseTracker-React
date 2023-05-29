@@ -15,8 +15,8 @@ function Home() {
         <h1>WELCOME TO EXERCISE TRACKER APP</h1>
         <p>Login with your login credential to continue</p>
         <div>
-          <button><Link to="/login">Log in</Link></button>
-          <button><Link to="/signup">Sign up</Link></button>
+          <Link to="/login"><button><p>Log in</p></button></Link>
+          <Link to="/signup"><button><p>Sign up</p></button></Link>
         </div>
       </div>
     </div>
