@@ -1,6 +1,8 @@
 import { Alert } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './form.scss'
 
 const Login = () => {
@@ -9,7 +11,19 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [visible, setVisible] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
+
+    const navigate = useNavigate()
+
+    const notify = () => toast.success('Logged in Successfully', {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
 
     async function handleSubmit(event){
       event.preventDefault()
@@ -32,7 +46,10 @@ const Login = () => {
           setVisible(true)
         }else{
           localStorage.setItem("accessToken", data.accessToken)
-          setLoggedIn(true)
+          notify()
+          setTimeout(() => {
+            navigate("/exercises")
+          }, 2000);
         }
         
       }catch(err){
@@ -69,6 +86,7 @@ const Login = () => {
           <input type="submit" value="Login"/>
         </form>
         <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
+        <ToastContainer />
       </div>
     )
   }

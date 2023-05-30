@@ -62,17 +62,34 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { Alert } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Singup = () => {
 
   const [error, setError] = useState("")
+  const navigate = useNavigate()
+
+  const notify = () => toast.success('Account Created Successfully', {
+    position: "bottom-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+
+
   // Define the validation schema using Yup
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .trim()
       .required('Name is required')
       .max(30, 'Name should not exceed 30 characters.')
-      .matches(/^[A-Za-z\s]+$/, 'Exercise name should contain only English alphabets.')
+      .matches(/^[A-Za-z\s]+$/, 'name should contain only English alphabets.')
       .matches(/^[^\s]+(\s+[^\s]+)*$/, 'Name should not contain leading or trailing spaces'),
     email: Yup.string()
       .email('Invalid email')
@@ -81,7 +98,7 @@ const Singup = () => {
       .required('Password is required')
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        `Password should contain one Uppercase, Lowercase and sign`
+        `Password should contain atleast one Uppercase, Lowercase and speacial character`
       ),
   });
 
@@ -110,22 +127,22 @@ const Singup = () => {
 
       if(data.title){
         setError(data.message);
+      }else{
+        notify()
+        setTimeout(() => {
+          navigate("/login")
+        }, 2000);
       }
     },
   });
 
-  // Handle form submission
-  const handleSubmit = (values) => {
-    console.log(values);
-    // You can perform any further actions, such as API calls or state updates, here.
-  };
-
   return (
     
     <div className='login-signup'>
+      <h1>Sign Up</h1>
+      {error ? <Alert severity="error" style={{fontSize: "18px", margin: "auto"}}>{error}</Alert> : null}
 
       <form onSubmit={formik.handleSubmit}>
-        {error ? <Alert severity="error" style={{fontSize: "18px", margin: "auto"}}>{error}</Alert> : null}
         <div>
           <label htmlFor="name">Name:</label><br/>
           <input
@@ -176,6 +193,8 @@ const Singup = () => {
 
         <input type="submit" value="Sign Up"/>
       </form>
+      <p>Already have an account? <Link to='/login'>Log in</Link> </p>
+      <ToastContainer />
     </div>
     // </Formik>
   );
