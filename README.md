@@ -56,4 +56,4 @@ The project follows a standard folder structure:
 ![Design of exercises page](/design/exercises-ui.png)
 
 ### Add Exercises
-![Design of add exercise page](/design/addexercises-ui.png)
+![Design of add exercise page](/design/addexercise-ui.png)
