@@ -25,7 +25,7 @@ The Exercise Tracking App is built using the following technologies:
 
 To get started with the Exercise Tracking App, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/arsalanlal414/exerciseTracking-React.git`
+1. Clone the repository: `git clone https://github.com/arsalanlal414/exerciseTracker-React.git`
 2. Install the dependencies: `npm install`
 3. Set up the environment variables for the backend server, including the database connection URL and JWT secret.
 4. Start the development server: `npm start`
