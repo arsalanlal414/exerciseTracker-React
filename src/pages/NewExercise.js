@@ -111,8 +111,8 @@ const NewExercise = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.description && formik.errors.description && (
-            <div className="error">{formik.errors.description}</div>
+          {formik.touched.desc && formik.errors.desc && (
+            <div className="error">{formik.errors.desc}</div>
           )}
         </div>
         <div>
