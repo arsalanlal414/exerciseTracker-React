@@ -42,6 +42,8 @@ The project follows a standard folder structure:
 - `server`: Contains the backend server code, including API endpoints and database connectivity.
 
 ## UI Design
+### Home Page
+![Design of login page](/design/home-ui.png)
 
 ### Login & Signup
 ![Design of login page](/design/login-ui.png)
@@ -49,3 +51,9 @@ The project follows a standard folder structure:
 <br />
 
 ![Design of Signup page](/design/signup-ui.png)
+
+### All Exercises
+![Design of exercises page](/design/exercises-ui.png)
+
+### Add Exercises
+![Design of add exercise page](/design/addexercises-ui.png)
